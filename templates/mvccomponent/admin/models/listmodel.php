@@ -116,13 +116,7 @@ class ##Component##Model##plural## extends JModelList
 		$catid = (int) $this->getState('filter.category_id', 0);
 		<?php endif; ?>
 
-##ifdefFieldaliasStart##
-		$query->select('a.*, '
-		. ' CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(\':\', a.id, a.alias) ELSE a.id END as slug');
-##ifdefFieldaliasEnd##
-##ifnotdefFieldaliasStart##
 		$query->select('a.*');
-##ifnotdefFieldaliasEnd##
 		$query->from('##table## as a');
 
 		<?php if($this->uses_categories): ?>
