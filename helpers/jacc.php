@@ -420,7 +420,7 @@ class JaccHelper
 		if(empty($firsttable) && isset($options['firstname'])) $firstname = $options['firstname'];
 		 
 		if((isset($options['submenu']) && trim($options['submenu']))) {
-		    $options['submenu'] = "			<submenu>\n".$options['submenu']."\n			</submenu>";
+		    $options['submenu'] = "<submenu>\n".$options['submenu']."		</submenu>";
 		}		
 		$description = $item->description;
 		$version = $item->version;

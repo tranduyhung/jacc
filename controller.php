@@ -382,7 +382,7 @@ class JaccController extends JControllerLegacy
 
 				//Submenu for admin, if more than one table selected
 				if (count($item->tables) >1) {
-					$submenu .=  "		  <menu link=\"option=".$com_component."&amp;view=".$plural."\">".ucfirst($plural)."</menu>\n";
+					$submenu .=  "			<menu link=\"option=".$com_component."&amp;view=".$plural."\">".ucfirst($plural)."</menu>\n";
 				}
 
 				$sourcexml = file_get_contents(JPATH_COMPONENT_ADMINISTRATOR.'/models/sources.xml');
@@ -396,7 +396,7 @@ class JaccController extends JControllerLegacy
 					JaccHelper::createFolder($model->getTempPath(true).'site'.DS.'views'.DS.$plural);
 					JaccHelper::createFolder($model->getTempPath(true).'site'.DS.'views'.DS.$plural.DS.'tmpl');
 				} elseif($uses_categories) {
-					$submenu .=  "		  <menu link=\"option=com_categories&amp;extension=".$com_component.".".$name."\">".$lang_str."_CATEGORIES_TITLE</menu>\n";
+					$submenu .=  "			<menu link=\"option=com_categories&amp;extension=".$com_component.".".$name."\">".$lang_str."_CATEGORIES_TITLE</menu>\n";
 					$syslanguage .= $lang_str."_CATEGORIES_TITLE=\"".ucfirst($name)." Categories\"\n";
 					$options = array('firstname'=>$lang_str."_CATEGORIES_TITLE", 'extension'=>$name);
 					$menuhelper .= JaccHelper::_replace($catmenu_tmpl, $item, $options );
@@ -445,7 +445,7 @@ class JaccController extends JControllerLegacy
 		        //Make a submenu, if the pair is created for backend
 		        if($options['option'] == 'backend' || $options['option'] == 'both' ) {
 		            $menuhelper .= JaccHelper::_replace($menu_tmpl, $item, $replaceoptions);
-		            $addsubmenu .=  "		  <menu  link=\"option=".$com_component."&amp;view=".$options['name']."\">".ucfirst($options['name'])."</menu>\n";
+		            $addsubmenu .=  "			<menu link=\"option=".$com_component."&amp;view=".$options['name']."\">".ucfirst($options['name'])."</menu>\n";
 		            $routerswitch .= JaccHelper::_replace($router_tmpl, $item, $replaceoptions);
 				    $syslanguage .= strtoupper($options['name'])."=\"".ucfirst($options['name'])."\"\n";
 		        }
