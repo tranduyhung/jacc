@@ -58,7 +58,6 @@ class ##Component##View##Plural## extends JViewLegacy
 		{
 			$tpl = '2';
 		}
-	}
 
 		parent::display($tpl);
 	}
