@@ -47,7 +47,7 @@ class ##Component##Model##plural## extends JModelList
 		parent::populateState();
 		$app = JFactory::getApplication();
 		$jinput = $app->input;
-		$id = $jinput->get('id', 0, integer');
+		$id = $jinput->get('id', 0, 'integer');
 
 		$this->setState('##name##list.id', $id);
 
