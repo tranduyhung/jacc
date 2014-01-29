@@ -1,59 +1,47 @@
 <?php
 /**
- * @version		$Id:controller.php 1 ##date##Z ##sauthor## $
- * @author	   	##author##
- * @package    ##Component##
- * @subpackage Controllers
- * @copyright  	Copyright (C) ##year##, ##author##. All rights reserved.
- * @license ##license##
+ * @package     ##Component##
+ * @version     ##version##
+ * @author      CMExtension Team
+ * @copyright   Copyright (C) 2012-2014 CMExtension Team http://www.cmext.vn/
+ * @license     GNU General Public License version 2 or later
  */
 
-// no direct access
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die();
 
 jimport('joomla.application.component.controller');
 
 /**
- * ##Component## Standard Controller
- *
- * @package ##Component##   
- * @subpackage Controllers
+ * ##Component## controller class.
  */
 class ##Component##Controller extends JControllerLegacy
 {
 	/**
-	 * @var		string	The default view.
-	 * @since   1.6
+	 * @var string  The default view.
 	 */
 	protected $default_view = '##defaultviewname##';
-	
+
 	/**
 	 * Method to display a view.
 	 *
-	 * @param   boolean			If true, the view output will be cached
-	 * @param   array  An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param   boolean         If true, the view output will be cached.
+	 * @param   array           An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return  JController		This object to support chaining.
-	 * @since   1.5
+	 * @return  JController     This object to support chaining.
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-	
-		if(version_compare(JVERSION,'3','<')){
-			$view   = JRequest::getVar('view', '##defaultviewname##');
-			$layout = JRequest::getVar('layout', 'default');
-			$id     = JRequest::getInt('id');
-		} else {
-			$view   = $this->input->get('view', '##defaultviewname##');
-			$layout = $this->input->get('layout', 'default');
-			$id     = $this->input->getInt('id');
-		}
-		
+		/*
+		$jinput = JFactory::getApplication()->input;
+
+		$view	= $jinput->get('view', '##defaultviewname##');
+		$layout	= $jinput->get('layout', 'default');
+		$id		= $jinput->get('id', 0, 'integer');
+		*/
+
 		parent::display();
-	
 		return $this;
 	}
 
-}// class
-  
+}
 ?>

@@ -1,33 +1,45 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 ##codestart##
 /**
-* @version		$Id: default_controller.php 136 2013-09-24 14:49:14Z michel $ $Revision$ $DAte$ $Author$ $
-* @package		##Component##
-* @subpackage 	Controllers
-* @copyright	Copyright (C) ##year##, ##author##. All rights reserved.
-* @license ###license##
-*/
+ * @package     ##Component##
+ * @version     ##version##
+ * @author      CMExtension Team
+ * @copyright   Copyright (C) 2012-2014 CMExtension Team http://www.cmext.vn/
+ * @license     GNU General Public License version 2 or later
+ */
 
-// no direct access
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die();
 
-jimport('joomla.application.component.controlleradmin');
 jimport('joomla.application.component.controllerform');
 
 /**
- * ##Component####Name## Controller
- *
- * @package    ##Component##
- * @subpackage Controllers
+ * ##Component####Name## controller class.
  */
 class ##Component##Controller##Name## extends JControllerForm
 {
 	public function __construct($config = array())
 	{
-	
 		$this->view_item = '##name##';
 		$this->view_list = '##plural##';
 		parent::__construct($config);
-	}	
-}// class
+	}
+
+	/**
+	 * Function that allows child controller access to model data after the data has been saved.
+	 *
+	 * @param   JModelLegacy  $model      The data model object.
+	 * @param   array         $validData  The validated data.
+	 *
+	 * @return  void
+	 */
+	protected function postSaveHook(JModel &$model, $validData = array())
+	{
+		$task = $this->getTask();
+
+		if ($task == 'save')
+		{
+			$this->setRedirect(JRoute::_('index.php?option=com_##component##&view=##plural##', false));
+		}
+	}
+}
 ##codeend##
