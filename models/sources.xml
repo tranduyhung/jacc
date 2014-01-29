@@ -146,7 +146,7 @@
 			<source>mvccomponent/admin/views/listtmpl_j2.php</source>
 			<folder>admin/views/##plural##/tmpl</folder>
 			<ext>php</ext>
-			<name>default_25</name>
+			<name>default_j2</name>
 		</item>
 		<item>
 			<id>sitetmpl</id>
