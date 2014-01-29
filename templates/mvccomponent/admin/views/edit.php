@@ -4,19 +4,6 @@
 defined('_JEXEC') or die('Restricted access');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
-
-// Set toolbar items for the page
-$edit		= JRequest::getVar('edit', true);
-$text = !$edit ? JText::_( 'New' ) : JText::_( 'Edit' );
-JToolBarHelper::title(   JText::_( '##Name##' ).': <small><small>[ ' . $text.' ]</small></small>' );
-JToolBarHelper::apply('##name##.apply');
-JToolBarHelper::save('##name##.save');
-if (!$edit) {
-	JToolBarHelper::cancel('##name##.cancel');
-} else {
-	// for existing items the button is renamed `close`
-	JToolBarHelper::cancel( '##name##.cancel', 'Close' );
-}
 ##codeend##
 
 <script language="javascript" type="text/javascript">

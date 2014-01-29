@@ -41,7 +41,52 @@ class ##Component##View##Name## extends JViewLegacy
 			return false;
 		}
 
+		$this->addToolbar();
 		parent::display($tpl);
+	}
+
+	/**
+	 * Add the page title and toolbar.
+	 *
+	 * @return  void.
+	 */
+	protected function addToolbar()
+	{
+		JFactory::getApplication()->input->set('hidemainmenu', true);
+
+		$user		= JFactory::getUser();
+		$isNew		= ($this->item->id == 0);
+		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $user->get('id'));
+		$canDo		= ##Component##Helper::getActions(<?php if($this->uses_categories): ?>$this->state->get('<?php echo $this->category_field; ?>')<?php endif;?>);
+
+		JToolBarHelper::title(JText::_('##Name##'), 'generic.png');
+
+		// If not checked out, can save the item.
+		if (!$checkedOut && $canDo->get('core.edit') || $canDo->get('core.create'))
+		{
+			JToolbarHelper::apply('##name##.apply');
+			JToolbarHelper::save('##name##.save');
+		}
+
+		if (!$checkedOut && $canDo->get('core.create'))
+		{
+			JToolbarHelper::save2new('##name##.save2new');
+		}
+
+		// If an existing item, can save to a copy.
+		if (!$isNew && $canDo->get('core.create'))
+		{
+			JToolbarHelper::save2copy('##name##.save2copy');
+		}
+
+		if (empty($this->item->id))
+		{
+			JToolbarHelper::cancel('##name##.cancel');
+		}
+		else
+		{
+			JToolBarHelper::cancel('##name##.cancel', 'JTOOLBAR_CLOSE');
+		}
 	}
 }
 ##codeend##

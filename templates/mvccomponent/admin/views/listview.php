@@ -72,7 +72,7 @@ class ##Component##View##Plural## extends JViewLegacy
 		$canDo = ##Component##Helper::getActions(<?php if($this->uses_categories): ?>$this->state->get('<?php echo $this->category_field; ?>')<?php endif;?>);
 		$user = JFactory::getUser();
 
-		JToolBarHelper::title(JText::_('##Name##'),'generic.png');
+		JToolBarHelper::title(JText::_('##Name##'), 'generic.png');
 
 		if ($canDo->get('core.create'))
 		{
