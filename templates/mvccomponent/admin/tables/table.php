@@ -75,7 +75,7 @@ class Table##Name## extends JTable
 
 		$this->alias = JFilterOutput::stringURLSafe($this->alias);
 
-		/* Check for existing alias.
+		// Check for existing alias.
 		$query = $this->_db->getQuery(true);
 		$query->select($this->_db->quoteName($this->getKeyName()))
 			->from($this->_db->quoteName($this->_tbl))
