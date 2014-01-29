@@ -1,0 +1,28 @@
+COMPILING A TEMPLATE STYLE
+
+change to this directory and call:
+
+lessc styles/template-black.less > ../css/template-black.css
+lessc --yui-compress  styles/template-black.less > ../css/template-black-min.css
+lessc styles/responsive-black.less > ../css/responsive.css
+lessc --yui-compress  styles/responsive-black.less > ../css/responsive-min.css
+
+lessc responsive.less > ../css/responsive.css
+lessc --yui-compress  responsive.less > ../css/responsive-min.css
+
+CREATING YOUR OWN STYLE
+
+% cp styles/template-black.less styles/template-myown.less
+% cp cp styles/responsive-black.less styles/responsive-myown.less
+% cp -R styles/black styles/myown
+% nano styles/template-myown.less
+
+replace the line '@import "black/allstart.less";' with '@import "myown/allstart.less";'
+
+% nano styles/responsive-myown.less
+
+Do the same replacement
+
+Now go to styles/myown/, check all the less files in the folder, and define your own values.  It's recommended to start with allstart.less... 
+  
+After you may want to compile the less by replacing "black" in the first chapter with "myown" :.-)

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="1.6">
+	<name>##Name##</name>
+	<creationDate>##date##</creationDate>
+	<packagename>##alias##</packagename>
+	<version>##version##</version>
+	<copyright>Copyright (C) ##year## ##author## Open Source Matters. All rights reserved.</copyright>	
+	<license>##license##</license>	
+	<packager>##author##</packager>
+	<packagerurl>##packagerurl##</packagerurl>
+	<description><![CDATA[##description##]]></description>
+	<update>##updateurl##</update>
+	<files folder="packages">
+##files##
+	</files>
+</extension>

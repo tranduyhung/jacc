@@ -1,0 +1,151 @@
+//
+// Bootstrap specific Layouts
+// --------------------------------------------------
+
+
+// Container (centered, fixed-width layouts)
+.container {
+  .container-fixed();
+}
+
+.header {
+	background-color:@headerBackground;
+	min-height: @headerHeight;
+	border-bottom:2px solid transparent;
+	margin-bottom:20px;
+	}
+
+.header-inner {	
+	background-color: @headerBackground;	
+	min-height: @headerHeight;
+}
+
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+.container-fluid {
+  padding-right: @gridGutterWidth;
+  padding-left: @gridGutterWidth;
+  .clearfix();
+}
+
+
+// Header Layout
+// --------------------------------------------------
+#logo {
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+
+#topmenu {
+
+	margin-top:1px;
+	padding-top:1px;
+	padding-bottom:1px;
+}
+
+#topmenu ul.nav {
+	list-style: none outside none;
+}
+
+#topmenu ul.nav li{
+	font-size: @topNavFontsize;
+	line-height: @topNavFontsize;
+} 
+
+.top-dist {
+	margin-top: -20px;
+}	 
+
+
+#topmenu .nav-tabs > li > a
+{
+  color: @topNavLinkColor;
+}
+
+#topmenu .nav-tabs > li > a:hover {
+	color: @topNavLinkColorHover;
+}
+
+#topmenu .nav-tabs > li > a {
+  &:hover {
+    border-color: 	@topNavTabsBorderColor;
+    color: 			@topNavLinkColorHover;
+  }
+}
+// Active state, and it's :hover to override normal :hover
+#topmenu .nav-tabs > .active > a,
+#topmenu .nav-tabs > .active > a:hover {
+  color: @topNavActiveColor;
+  background-color: @topNavActiveBackground;
+  border: 1px solid @topNavActiveBackground;
+}
+
+
+// Page Columns
+// --------------------------------------------------
+#content {
+	background-color:@contentBackground;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+// right 
+.moduletable {
+	border: 1px solid @rightModuleBorder;    
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    min-height: 20px;
+    padding: 15px;
+    margin-bottom:30px;
+    .border-radius(@borderRadiusMiddle);
+}
+#right-col ul {
+	list-style: none outside none;
+	margin:0;
+}
+
+#right-col ul.menu li {
+    background-color: @horMenulistBackground;
+    border-bottom: 3px solid @baseColor;
+    display: block;
+    margin-left: 0;
+    padding:3px;
+}
+#right-col ul.menu li:hover {
+	background-color: @horMenulistColorHover;
+}
+
+#right-col ul.menu li a {
+	color: @horMenulistLinkColor;
+}
+
+#left-col .moduletable {
+	.background-opacity();
+	border: 1px solid @leftModuleBorder;    
+}
+
+#left-col ul {
+	list-style: none outside none;	
+}
+
+
+// Joomla specific
+// --------------------------------------------------
+
+#page, .item, .item-page, .items-leading, .items-more {
+	border: 1px solid @itemBorderColor;
+    background-color:@itemBackground;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 5px;
+    .border-radius(@borderRadiusMiddle);
+}
+
+.article_separator {
+	padding:10px;
+} 
+
+.item-date  {
+	height:40px;
+}
+
+

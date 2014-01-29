@@ -1,0 +1,114 @@
+//
+// Variablen
+// --------------------------------------------------
+
+// ==============================================
+//     Allgemeine Definitionen
+// ==============================================
+
+// -- wir legen erst mal Farben zur späteren Verwendung - oder auch Nichtverwendung ;-) - fest
+
+// Grays
+// -------------------------
+@black:                 #000;
+@grayDarker:            #222;
+@grayDark:              #333;
+@gray:                  #454545;
+@grayMiddle:         	#999;
+@grayLight:             #cccccc;
+@grayLighter:           #f0f0f0;
+@white:                 #fff;
+
+
+// Accent colors
+// -------------------------
+@blue:                  #294379;
+@blueDark:              #1A4A6F;
+@blueDarker:         	#252F36;
+@blueLight:         	#98b5cb;
+@green:                 #77b718;
+@red:                   #9f1200;
+@brownDark:				#221405;
+@silver: 				#d4d4d4;
+@brown: 				#39250f; 				
+@yellow:                #ffcc00;
+@orange:                #e05c28;
+@purple:                #A1102A;
+
+//Creme - Opacity
+// ---------------------------
+
+@creme: 				#ECE5B7;
+@opacity:        		0.4;
+
+//Gold - Light und Dark zum Erzeugen eines Verlaufs 
+// ---------------------------
+@goldLight:				#E7D785;
+@goldDark:				#C49C38;
+@gold: 					lighten(@goldDark,10%);
+
+// Farben, die zur Abhebung dienen können (z.B. als Hintergrund des headers)
+// ---------------------------
+@baseContrastColor:@grayDarker;
+@baseContrastInvertColor: lighten(@gray,20%);
+@baseContrastInvertLinkColor: 	@linkColor; // Links in den "Kontrast"-Bereichen
+
+// Unaufdringliche Farbe
+@unobtrusiveColor: @grayLight;
+
+
+// ==============================================
+//     Definitionen Details 
+// ==============================================
+
+// -------------------------
+// Body
+// -------------------------
+@bodyBackground: @black;
+@bodyInnerBackground:       transparent;
+
+// Text und Hintergrund global
+// ---------------------------
+@textColor:             @silver;
+@baseColor: 			@black; //Grundfarbe (z.B. Hintergrundfarbe des Contentbereichs und von Tabellen)  
+
+
+// ------------------------
+// Überschriftfarben
+
+@headingsColor:         @silver;
+@headingsAltColor:      @white; // Wird von h4 verwendet
+@headingsBrandColor:    lighten(@goldDark,10%); // Schrift mit der Klasse "brand"
+@headingsInverseColor:  @goldLight;
+
+
+// -------------------------
+// Links
+// -------------------------
+@linkColor:             @white;
+@linkColorHover:        darken(@textColor, 15%);
+
+
+// -------------------------
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+@import "areas.less";
+
+@import "buttons.less";
+
+@import "tables.less";
+
+@import "navigation.less";
+
+@import "fonts.less";
+
+@import "forms.less";
+
+@import "sizes.less";
+
+@import "icons.less";
+
+@import "tools.less";
