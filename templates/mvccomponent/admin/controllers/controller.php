@@ -32,7 +32,7 @@ class ##Component##Controller##Name## extends JControllerForm
 	 *
 	 * @return  void
 	 */
-	protected function postSaveHook(JModel &$model, $validData = array())
+	protected function postSaveHook(JModelLegacy $model, $validData = array())
 	{
 		$task = $this->getTask();
 
