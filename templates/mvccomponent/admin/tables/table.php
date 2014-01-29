@@ -1,119 +1,94 @@
  <?php defined('_JEXEC') or die('Restricted access'); ?>
 ##codestart##
 /**
-* @version		$Id:##name##.php  1 ##date##Z ##sauthor## $
-* @package		##Component##
-* @subpackage 	Tables
-* @copyright	Copyright (C) ##year##, ##author##. All rights reserved.
-* @license ###license##
-*/
+ * @package     ##Component##
+ * @version     ##version##
+ * @author      CMExtension Team
+ * @copyright   Copyright (C) 2012-2014 CMExtension Team http://www.cmext.vn/
+ * @license     GNU General Public License version 2 or later
+ */
 
-// no direct access
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die();
 
 /**
-* Jimtawl Table##Name## class
-*
-* @package		##Component##
-* @subpackage	Tables
+* ##Name## table class
 */
 class Table##Name## extends JTable
 {
-
 	/**
 	 * Constructor
 	 *
-	 * @param object Database connector object
-	 * @since 1.0
+	 * @param   JDatabaseDriver  &$db  A database connector object.
 	 */
-	public function __construct(& $db) 
+	public function __construct(&$db)
 	{
 		parent::__construct('##table##', '##primary##', $db);
 	}
 
 	/**
-	* Overloaded bind function
-	*
-	* @acces public
-	* @param array $hash named array
-	* @return null|string	null is operation was satisfactory, otherwise returns an error
-	* @see JTable:bind
-	* @since 1.5
-	*/
-	public function bind($array, $ignore = '')
-	{ 
-##ifdefFieldparamsStart##
-		if ( isset( $array['params'] ) && is_array( $array['params'] ) )
-        {
-            $registry = new JRegistry;
-			$registry->loadArray($array['params']);
-			$array['params'] = (string) $registry;
-        }
-##ifdefFieldparamsEnd##		
-		return parent::bind($array, $ignore);		
-	}
-
-	/**
-	 * Overloaded check method to ensure data integrity
+	 * Overloaded check method to ensure data integrity.
 	 *
-	 * @access public
-	 * @return boolean True on success
-	 * @since 1.0
+	 * @return  boolean  True on success.
 	 */
 	public function check()
 	{
 ##ifdefFieldorderingStart##
-		if ($this->##primary## === 0) {
-			//get next ordering
+		if ($this->##primary## === 0)
+		{
 ##ifdefFieldcatidStart##
-			$condition = ' catid = '.(int) $this->catid <?php if($this->publishedField): ?> . ' AND <?php echo $this->publishedField; ?> >= 0 ' <?php endif; ?>
+			$condition = ' catid = '.(int) $this->catid <?php if ($this->publishedField): ?> . ' AND <?php echo $this->publishedField; ?> >= 0 ' <?php endif; ?>
 ##ifdefFieldcatidEnd##
 ##ifdefFieldcategory_idStart##
-			$condition = ' category_id = '.(int) $this->category_id <?php if($this->publishedField): ?> . ' AND <?php echo $this->publishedField; ?> >= 0 ' <?php endif;?>
-##ifdefFieldcategory_idEnd##			
-			$this->ordering = $this->getNextOrder( ##ifdefFieldcatidStart## $condition ##ifdefFieldcatidEnd##);
-
+			$condition = ' category_id = '.(int) $this->category_id <?php if ($this->publishedField): ?> . ' AND <?php echo $this->publishedField; ?> >= 0 ' <?php endif;?>
+##ifdefFieldcategory_idEnd##
+			$this->ordering = $this->getNextOrder(##ifdefFieldcatidStart## $condition ##ifdefFieldcatidEnd##);
 		}
 ##ifdefFieldorderingEnd##
-##ifdefFieldcreatedStart##		
-		if (!$this->created) {
+##ifdefFieldcreatedStart##
+		if (!$this->created)
+		{
 			$date = JFactory::getDate();
-			$this->created = $date->format("Y-m-d H:i:s");
-		}				
+			$this->created = $date->format('Y-m-d H:i:s');
+		}
 ##ifdefFieldcreatedEnd##
-##ifdefFieldcreated_timeStart##		
-		if (!$this->created_time) {
+##ifdefFieldcreated_timeStart##
+		if (!$this->created_time)
+		{
 			$date = JFactory::getDate();
-			$this->created = $date->format("Y-m-d H:i:s");
-		}				
+			$this->created = $date->format('Y-m-d H:i:s');
+		}
 ##ifdefFieldcreated_timeEnd##
-		/** check for valid name */
-		/**
-		if (trim($this-><?php echo $this->hident ?>) == '') {
-			$this->setError(JText::_('Your ##Name## must contain a <?php echo $this->hident ?>.')); 
+		// Check for valid name.
+		if (trim($this-><?php echo $this->hident ?>) == '')
+		{
+			$this->setError(JText::_('Your ##Name## must contain a <?php echo $this->hident ?>.'));
 			return false;
 		}
-		**/		
+
 ##ifdefFieldaliasStart##
-		if(empty($this->alias)) {
+		if (empty($this->alias))
+		{
 			$this->alias = $this-><?php echo $this->hident ?>;
 		}
-		
+
 		$this->alias = JFilterOutput::stringURLSafe($this->alias);
-		
-		/** check for existing alias */
-		$query = 'SELECT '.$this->getKeyName().' FROM '.$this->_tbl.' WHERE alias = '.$this->_db->Quote($this->alias);
+
+		/* Check for existing alias.
+		$query = $this->_db->getQuery(true);
+		$query->select($this->_db->quoteName($this->getKeyName()))
+			->from($this->_db->quoteName($this->_tbl))
+			->where($this->_db->quoteName('alias') . ' = ' . $this->_db->quote($this->alias));
 		$this->_db->setQuery($query);
-		
-		$xid = intval($this->_db->loadResult());
 
-		if ($xid && $xid != intval($this->{$this->getKeyName()})) {		
-			$this->setError(JText::_('Can\'t save to ##Name##. Name already exists'));
+		$xid = (int) $this->_db->loadResult();
+
+		if ($xid && $xid != (int) $this->{$this->getKeyName()})
+		{
+			$this->setError(JText::_('Duplicated alias.'));
 			return false;
-		}      	
-
+		}
 ##ifdefFieldaliasEnd##
+
 		return true;
 	}
 }
- 
