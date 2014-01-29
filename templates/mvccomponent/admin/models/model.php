@@ -15,7 +15,7 @@ jimport('joomla.application.component.modeladmin');
 /**
  * ##Name## model class.
  */
-class ##Component##Model##Name##  extends JModelAdmin
+class ##Component##Model##Name## extends JModelAdmin
 {
 	/**
 	 * Method to get the record form.
@@ -23,7 +23,7 @@ class ##Component##Model##Name##  extends JModelAdmin
 	 * @param   array    $data      Data for the form. [optional]
 	 * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not. [optional]
 	 *
-	 * @return  mixed    A JForm object on success, false on failure
+	 * @return  mixed    A JForm object on success, false on failure.
 	 */
 	public function getForm($data = array(), $loadData = true)
 	{

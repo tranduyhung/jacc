@@ -28,7 +28,7 @@ class ##Component##View##Plural## extends JViewLegacy
 	 * Displays the view.
 	 * @param   string  $tpl    Template.
 	 *
-	 * @return   void
+	 * @return   void.
 	 */
 	public function display($tpl = null)
 	{
@@ -53,8 +53,12 @@ class ##Component##View##Plural## extends JViewLegacy
 		if (!version_compare(JVERSION,'3','<'))
 		{
 			$this->sidebar = JHtmlSidebar::render();
-			$tpl = 'default2';
 		}
+		else
+		{
+			$tpl = '2';
+		}
+	}
 
 		parent::display($tpl);
 	}
@@ -62,7 +66,7 @@ class ##Component##View##Plural## extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @return  void
+	 * @return  void.
 	 */
 	protected function addToolbar()
 	{
@@ -81,7 +85,7 @@ class ##Component##View##Plural## extends JViewLegacy
 			JToolBarHelper::editList('##name##.edit');
 		}
 
-		<?php if($this->publishedField): ?>
+<?php if($this->publishedField): ?>
 		if ($this->state->get('filter.state') != 2)
 		{
 			JToolbarHelper::publish('##plural##.publish', 'JTOOLBAR_PUBLISH', true);
@@ -102,25 +106,25 @@ class ##Component##View##Plural## extends JViewLegacy
 				}
 			}
 		}
-		<?php endif;?>
+<?php endif;?>
 
 		<?php if($this->hasCheckin):?>
 		if ($canDo->get('core.edit.state'))
 		{
 			JToolbarHelper::checkin('##plural##.checkin');
 		}
-		<?php endif; ?>
+<?php endif; ?>
 
 		if (<?php if($this->publishedField): ?>$this->state->get('filter.state') == -2 && <?php endif;?>$canDo->get('core.delete'))
 		{
 			JToolbarHelper::deleteList('', '##plural##.delete', 'JTOOLBAR_EMPTY_TRASH');
 		}
-		<?php if($this->publishedField): ?>
+<?php if($this->publishedField): ?>
 		elseif ($canDo->get('core.edit.state'))
 		{
 			JToolbarHelper::trash('##plural##.trash');
 		}
-		<?php endif;?>
+<?php endif;?>
 
 		JToolBarHelper::preferences('com_##component##');
 
@@ -129,7 +133,7 @@ class ##Component##View##Plural## extends JViewLegacy
 			JHtmlSidebar::setAction('index.php?option=##com_component##&view=##plural##');
 		}
 
-		<?php if($this->publishedField): ?>
+<?php if($this->publishedField): ?>
 		if (!version_compare(JVERSION,'3','<'))
 		{
 			JHtmlSidebar::addFilter(
@@ -138,9 +142,9 @@ class ##Component##View##Plural## extends JViewLegacy
 				JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.state'), true)
 			);
 		}
-		<?php endif; ?>
+<?php endif; ?>
 
-		<?php if($this->uses_categories): ?>
+<?php if($this->uses_categories): ?>
 		if (!version_compare(JVERSION,'3','<'))
 		{
 			JHtmlSidebar::addFilter(
@@ -149,7 +153,7 @@ class ##Component##View##Plural## extends JViewLegacy
 				JHtml::_('select.options', JHtml::_('category.options', '##com_component##.##name##'), 'value', 'text', $this->state->get('filter.category_id'))
 			);
 		}
-		<?php endif?>
+<?php endif?>
 	}
 
 	/**
@@ -160,13 +164,13 @@ class ##Component##View##Plural## extends JViewLegacy
 	protected function getSortFields()
 	{
 		return array(
-		<?php foreach($this->listfieldlist as $field):
-				$translate = ($field == 'ordering') ? 'JGRID_HEADING_ORDERING' : ucfirst($field);
-				if($field == 'state' || $field == 'published') $translate = ('JSTATUS');
-				if($field == 'id') $translate = ('JGRID_HEADING_ID');
-			?>
+<?php foreach($this->listfieldlist as $field):
+$translate = ($field == 'ordering') ? 'JGRID_HEADING_ORDERING' : ucfirst($field);
+if($field == 'state' || $field == 'published') $translate = ('JSTATUS');
+if($field == 'id') $translate = ('JGRID_HEADING_ID');
+?>
 			'a.<?php echo $field; ?>' => JText::_('<?php echo $translate; ?>'),
-		<?php endforeach; ?>
+<?php endforeach; ?>
 		);
 	}
 }

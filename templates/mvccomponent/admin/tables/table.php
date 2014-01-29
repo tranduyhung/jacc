@@ -16,7 +16,7 @@ defined('_JEXEC') or die();
 class Table##Name## extends JTable
 {
 	/**
-	 * Constructor
+	 * Constructor.
 	 *
 	 * @param   JDatabaseDriver  &$db  A database connector object.
 	 */
@@ -45,6 +45,7 @@ class Table##Name## extends JTable
 		}
 ##ifdefFieldorderingEnd##
 ##ifdefFieldcreatedStart##
+
 		if (!$this->created)
 		{
 			$date = JFactory::getDate();
@@ -52,6 +53,7 @@ class Table##Name## extends JTable
 		}
 ##ifdefFieldcreatedEnd##
 ##ifdefFieldcreated_timeStart##
+
 		if (!$this->created_time)
 		{
 			$date = JFactory::getDate();
@@ -64,8 +66,8 @@ class Table##Name## extends JTable
 			$this->setError(JText::_('Your ##Name## must contain a <?php echo $this->hident ?>.'));
 			return false;
 		}
-
 ##ifdefFieldaliasStart##
+
 		if (empty($this->alias))
 		{
 			$this->alias = $this-><?php echo $this->hident ?>;
@@ -88,7 +90,6 @@ class Table##Name## extends JTable
 			return false;
 		}
 ##ifdefFieldaliasEnd##
-
 		return true;
 	}
 }
