@@ -10,12 +10,12 @@
 
 defined('_JEXEC') or die();
 
-jimport('joomla.application.component.controllerform');
+require_once 'cmcontrollerform.php';
 
 /**
  * ##Component####Name## controller class.
  */
-class ##Component##Controller##Name## extends JControllerForm
+class ##Component##Controller##Name## extends CMControllerForm
 {
 	public function __construct($config = array())
 	{
@@ -27,12 +27,12 @@ class ##Component##Controller##Name## extends JControllerForm
 	/**
 	 * Function that allows child controller access to model data after the data has been saved.
 	 *
-	 * @param   JModelLegacy  $model      The data model object.
-	 * @param   array         $validData  The validated data.
+	 * @param   JModel/JModelLegacy $model      The data model object.
+	 * @param   array               $validData  The validated data.
 	 *
 	 * @return  void
 	 */
-	protected function postSaveHook(JModelLegacy $model, $validData = array())
+	protected function CMPostSaveHook($model, $validData = array())
 	{
 		$task = $this->getTask();
 

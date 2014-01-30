@@ -107,7 +107,7 @@ class ##Component##View##Plural## extends JViewLegacy
 		}
 <?php endif;?>
 
-		<?php if($this->hasCheckin):?>
+<?php if($this->hasCheckin):?>
 		if ($canDo->get('core.edit.state'))
 		{
 			JToolbarHelper::checkin('##plural##.checkin');
