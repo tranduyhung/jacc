@@ -226,7 +226,6 @@ class JaccModelJacc  extends JaccModel {
 															   "                <listview>".$plural."</listview>\n".															   
 															   "                <display>".$fieldlist['hident']->get('key')."</display>\n".					
 															   "                <field>".$field->get('key')."</field>\n".
-															   "                <statefield>".$fieldlist['state']->get('key')."</statefield>\n".															   
 															   "                <primary>".$fieldlist['primary']->get('key')."</primary>\n".					
 															   "                <table>".$table."</table>\n".
 															   "            </extension>\n";	

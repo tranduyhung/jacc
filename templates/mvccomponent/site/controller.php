@@ -1,31 +1,33 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 ##codestart##
 /**
-* @version		$Id:controller.php  1 ##date##Z ##sauthor## $
-* @package		##Component##
-* @subpackage 	Controllers
-* @copyright	Copyright (C) ##year##, ##author##. All rights reserved.
-* @license ###license##
-*/
+ * @package     ##Component##
+ * @version     ##version##
+ * @author      CMExtension Team
+ * @copyright   Copyright (C) 2012-2014 CMExtension Team http://www.cmext.vn/
+ * @license     GNU General Public License version 2 or later
+ */
 
-// no direct access
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die();
 
 jimport('joomla.application.component.controller');
 
 /**
- * ##Component## Controller
- *
- * @package    
- * @subpackage Controllers
+ * ##Component## controller class.
  */
 class ##Component##Controller extends JControllerLegacy
 {
-
-
+	/**
+	 * Method to display a view.
+	 *
+	 * @param   boolean         If true, the view output will be cached.
+	 * @param   array           An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 *
+	 * @return  JController     This object to support chaining.
+	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-		$cachable	= true;	
+		$cachable = true;
 		<?php if($this->uses_categories): ?> 
 		$user		= JFactory::getUser();
 
