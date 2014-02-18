@@ -1,10 +1,9 @@
 <?php
 /**
- * @package     ##Component##
- * @version     ##version##
- * @author      CMExtension Team
- * @copyright   Copyright (C) 2012-2014 CMExtension Team http://www.cmext.vn/
- * @license     GNU General Public License version 2 or later
+ * @package    ##Component##
+ * @author     CMExtension Team <cmext.vn@gmail.com>
+ * @copyright  Copyright (C) 2012-2014 CMExtension Team http://www.cmext.vn/
+ * @license    GNU General Public License version 2 or later
  */
 
 defined('_JEXEC') or die();
